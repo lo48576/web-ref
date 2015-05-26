@@ -3,7 +3,7 @@
  * \brief  
  * \author Larry-o <nu11p0.6477@gmail.com>
  * \date   2015/05/26
- * C++ version: C++14
+ * C++ version: C++11
  */
 #include <iostream>
 #include <string>
