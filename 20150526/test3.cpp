@@ -46,11 +46,9 @@ void		hashTest3(const char *str)
 
 int			main()
 {
-	hashTest3("hello");
-	hashTest3("world");
-	hashTest3("other");
-	hashTest3("plumless");
-	hashTest3("buckeroo");
+	for(const auto &str : {"hello", "world", "other", "plumless", "buckeroo"}) {
+		hashTest3(str);
+	}
 
 	return	0;
 }

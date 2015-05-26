@@ -38,11 +38,9 @@ void		hashTest1(const char *str)
 
 int			main()
 {
-	hashTest1("hello");
-	hashTest1("world");
-	hashTest1("other");
-	hashTest1("plumless");
-	hashTest1("buckeroo");
+	for(const auto &str : {"hello", "world", "other", "plumless", "buckeroo"}) {
+		hashTest1(str);
+	}
 
 	return	0;
 }

@@ -55,11 +55,9 @@ void		test(const char *str)
 
 int			main()
 {
-	test("hello");
-	test("world");
-	test("other");
-	test("plumless");
-	test("buckeroo");
+	for(const auto &str : {"hello", "world", "other", "plumless", "buckeroo"}) {
+		test(str);
+	}
 
 	return	0;
 }

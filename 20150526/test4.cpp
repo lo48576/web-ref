@@ -14,7 +14,7 @@ using namespace	std;
 /*
  * マクロを使って楽する
  */
-void		hashTest3(const char *str)
+void		hashTest4(const char *str)
 {
 	using	nu11p0::literals::operator""_crc32;
 
@@ -25,15 +25,15 @@ void		hashTest3(const char *str)
 #define	CASE(s_)	case s_ ##_crc32: if((found=!std::strcmp(str, s_)))
 	switch(nu11p0::crc32(str)) {
 		CASE("hello") {
-			cout << "hashTest3(): hello" << endl;
+			cout << "hashTest4(): hello" << endl;
 		}
 			break;
 		CASE("world") {
-			cout << "hashTest3(): world" << endl;
+			cout << "hashTest4(): world" << endl;
 		}
 			break;
 		CASE("plumless") {
-			cout << "hashTest3(): plumless" << endl;
+			cout << "hashTest4(): plumless" << endl;
 		}
 			break;
 	} // switch(nu11p0::crc32(str))
@@ -42,7 +42,7 @@ void		hashTest3(const char *str)
 	// defaultの代わりにフラグを使う
 	if(!found) {
 		// 上のswitchでcaseに引っ掛からなかった
-		cout << "hashTest3(): (default"
+		cout << "hashTest4(): (default"
 			<< ", str=" << str
 			<< ", hash=" << std::hex << nu11p0::crc32(str) << std::dec
 			<< ')' << endl;
@@ -51,11 +51,9 @@ void		hashTest3(const char *str)
 
 int			main()
 {
-	hashTest3("hello");
-	hashTest3("world");
-	hashTest3("other");
-	hashTest3("plumless");
-	hashTest3("buckeroo");
+	for(const auto &str : {"hello", "world", "other", "plumless", "buckeroo"}) {
+		hashTest4(str);
+	}
 
 	return	0;
 }
@@ -63,9 +61,9 @@ int			main()
 /*
 output:
 
-hashTest3(): hello
-hashTest3(): world
-hashTest3(): (default, str=other, hash=d9583520)
-hashTest3(): plumless
-hashTest3(): (default, str=buckeroo, hash=4ddb0c25)
+hashTest4(): hello
+hashTest4(): world
+hashTest4(): (default, str=other, hash=d9583520)
+hashTest4(): plumless
+hashTest4(): (default, str=buckeroo, hash=4ddb0c25)
 */
